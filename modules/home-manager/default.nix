@@ -2,10 +2,7 @@
   pkgs,
   nunocf-nvim,
   ...
-}: let
-  gitConfig = import ./git/default.nix;
-  zshConfig = import ./zsh/default.nix;
-in {
+}: {
   # Don't change this when you change package input. Leave it alone.
   home = {
     stateVersion = "24.05";
@@ -23,6 +20,9 @@ in {
       pkgs.yarn
       pkgs.gh
       pkgs.lazygit
+
+      # replace cd
+      pkgs.zoxide
 
       # Haskell
       pkgs.haskellPackages.haskell-language-server
@@ -73,7 +73,7 @@ in {
     };
 
     zsh = import ./zsh;
-
+    zoxide = import ./zoxide;
     starship = import ./starship pkgs;
 
     kitty = {
