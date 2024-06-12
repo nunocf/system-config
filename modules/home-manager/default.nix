@@ -20,6 +20,7 @@
       pkgs.yarn
       pkgs.gh
       pkgs.lazygit
+      pkgs.wget
 
       # replace cd
       pkgs.zoxide
