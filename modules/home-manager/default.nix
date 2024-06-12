@@ -2,7 +2,10 @@
   pkgs,
   nunocf-nvim,
   ...
-}: {
+}: let
+  gitConfig = import ./git/default.nix;
+  zshConfig = import ./zsh/default.nix;
+in {
   # Don't change this when you change package input. Leave it alone.
   home = {
     stateVersion = "24.05";
@@ -51,52 +54,16 @@
 
     eza.enable = true;
 
-    git = {
-      enable = true;
-      userName = "Nuno Ferreira";
-      userEmail = "nunogcferreira@gmail.com";
-
-      lfs = {enable = true;};
-
-      aliases = {
-        aa = "add --all";
-        ap = "add --patch";
-        amend = "commit --amend";
-        ci = "commit";
-        co = "checkout";
-        dc = "diff --cached";
-        di = "diff";
-        glog = "log --oneline";
-        publish = "push -u origin HEAD";
-        root = "rev-parse --show-toplevel";
-        st = "status";
-        yoda = "push --force-with-lease";
-      };
-    };
+    git = import ./git;
 
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
 
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      shellAliases = {
-        ls = "ls --color=auto -F";
-        ll = "ls -l";
-        nixup = "pushd ~/.config2; nix flake update; nixswitch; popd";
-        nixswitch = "darwin-rebuild switch --flake ~/.config2/.#";
-        nri = "cd ~/dev/NoRedInk";
-      };
-    };
+    zsh = import ./zsh;
 
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    starship = import ./starship pkgs;
 
     kitty = {
       enable = true;
