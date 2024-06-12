@@ -6,8 +6,8 @@
   shellAliases = {
     ls = "ls --color=auto -F";
     ll = "ls -l";
-    nixup = "pushd ~/.config2; nix flake update; nixswitch; popd";
-    nixswitch = "darwin-rebuild switch --flake ~/.config2/.#";
+    nixup = "pushd ~/.system-config; nix flake update; nixswitch; popd";
+    nixswitch = "darwin-rebuild switch --flake ~/.system-config/.#";
     nri = "cd ~/dev/NoRedInk";
   };
 }
