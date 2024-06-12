@@ -22,10 +22,20 @@ in {
       pkgs.nodejs
       pkgs.yarn
       pkgs.gh
+      pkgs.lazygit
 
-      # Language servers
-      # pkgs.haskellPackages.haskell-language-server
-      # pkgs.haskellPackages.hlint
+      # Haskell
+      pkgs.haskellPackages.haskell-language-server
+      pkgs.haskellPackages.hlint
+      pkgs.ghc
+
+      # Elm
+      pkgs.elmPackages.elm-language-server
+      pkgs.elmPackages.elm-format
+
+      # JS
+      pkgs.nodePackages.eslint
+      pkgs.nodePackages.prettier
 
       # my vim flake
       nunocf-nvim.packages."aarch64-darwin".default
