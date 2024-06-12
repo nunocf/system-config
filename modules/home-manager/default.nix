@@ -21,6 +21,7 @@ in {
       pkgs.jq
       pkgs.nodejs
       pkgs.yarn
+      pkgs.gh
 
       # Language servers
       # pkgs.haskellPackages.haskell-language-server
