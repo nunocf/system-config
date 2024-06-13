@@ -28,6 +28,7 @@
       # Haskell
       pkgs.haskellPackages.haskell-language-server
       pkgs.haskellPackages.hlint
+      pkgs.haskellPackages.cabal-install
       pkgs.ghc
 
       # Elm
