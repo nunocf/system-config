@@ -29,6 +29,8 @@
       pkgs.haskellPackages.haskell-language-server
       pkgs.haskellPackages.hlint
       pkgs.haskellPackages.cabal-install
+      pkgs.haskellPackages.cabal-fmt
+      pkgs.haskellPackages.ormolu
       pkgs.ghc
 
       # Elm
@@ -38,6 +40,8 @@
       # JS
       pkgs.nodePackages.eslint
       pkgs.nodePackages.prettier
+      pkgs.prettierd
+      pkgs.yamllint
 
       # my vim flake
       nunocf-nvim.packages."aarch64-darwin".default
