@@ -26,11 +26,12 @@
       pkgs.zoxide
 
       # Haskell
-      pkgs.haskellPackages.haskell-language-server
-      pkgs.haskellPackages.hlint
-      pkgs.haskellPackages.cabal-install
+      pkgs.haskell-language-server
+      pkgs.hlint
+      pkgs.cabal-install
       pkgs.haskellPackages.cabal-fmt
-      pkgs.haskellPackages.ormolu
+      pkgs.haskellPackages.implicit-hie
+      pkgs.ormolu
       pkgs.ghc
 
       # Elm
