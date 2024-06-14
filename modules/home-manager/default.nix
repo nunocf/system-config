@@ -87,29 +87,6 @@
     zsh = import ./zsh;
     zoxide = import ./zoxide;
     oh-my-posh = import ./oh-my-posh pkgs;
-
-    kitty = {
-      enable = true;
-      darwinLaunchOptions = ["--start-as=maximized"];
-      settings = {
-        font_size = "16.0";
-        font_family = "FiraCode Nerd Font";
-        disable_ligatures = "cursor";
-        copy_on_select = "yes";
-
-        enabled_layouts = "tall:bias=30;full_size=1;mirrored=false";
-        hide_window_decorations = "titlebar-only";
-        window_padding_width = "10";
-
-        tab_title_template = "Tab {index}: {title}";
-        active_tab_font_style = "bold";
-      };
-
-      theme = "Kanagawa";
-
-      keybindings = {
-        "ctrl+shift+enter" = "new_window_with_cwd";
-      };
-    };
+    kitty = import ./kitty;
   };
 }
