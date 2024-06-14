@@ -76,7 +76,6 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   fujiGrey = '#727169'
   peachRed = '#FF5D62'
   sakuraPink = '#D27E99'
-  waveAqua1 = '#6A9589'
   waveAqua2 = '#7AA89F'
   springGreen = '#98BB6C'
 
