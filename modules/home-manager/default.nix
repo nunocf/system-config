@@ -60,6 +60,7 @@
     };
 
     file.".inputrc".source = ./dotfiles/inputrc;
+    file.".hushlogin".text = "";
   };
 
   programs = {
