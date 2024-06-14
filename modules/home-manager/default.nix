@@ -14,16 +14,17 @@
       pkgs.fd
       pkgs.curl
       pkgs.less
-      pkgs.kitty-themes
       pkgs.jq
       pkgs.nodejs
       pkgs.yarn
       pkgs.gh
       pkgs.lazygit
-      pkgs.wget
 
       # replace cd
       pkgs.zoxide
+
+      # themes for kitty
+      pkgs.kitty-themes
 
       # Haskell
       pkgs.haskell-language-server
@@ -81,7 +82,7 @@
 
     zsh = import ./zsh;
     zoxide = import ./zoxide;
-    starship = import ./starship pkgs;
+    oh-my-posh = import ./oh-my-posh pkgs;
 
     kitty = {
       enable = true;

@@ -1,0 +1,82 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:waveAqua2'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'p:fujiGrey'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:waveAqua2>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = 'p:sakuraPink'
+    background = 'transparent'
+    template = '{{ div .Ms 1000 }}s'
+
+    [blocks.segments.properties]
+      threshold = 5000
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}p:peachRed{{end}}",
+      "{{if eq .Code 0}}p:springGreen{{end}}",
+    ]
+    background = 'transparent'
+    template = 'λ'
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}p:peachRed{{end}}",
+    "{{if eq .Code 0}}p:springGreen{{end}}",
+  ]
+  background = 'transparent'
+  template = 'λ '
+
+[secondary_prompt]
+  foreground = 'p:springGreen'
+  background = 'transparent'
+  template = '❯❯ '
+
+[palette]
+  fujiGrey = '#727169'
+  peachRed = '#FF5D62'
+  sakuraPink = '#D27E99'
+  waveAqua1 = '#6A9589'
+  waveAqua2 = '#7AA89F'
+  springGreen = '#98BB6C'
