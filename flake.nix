@@ -33,11 +33,13 @@
     ...
   }: let
     pkgs-stable = import nixpkgs-stable {system = "aarch64-darwin";};
+    username = "nunocf";
+    hostname = "Nunos-MacBook-Pro";
   in {
-    darwinConfigurations.Nunos-MacBook-Pro = darwin.lib.darwinSystem {
+    darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-
       pkgs = import nixpkgs {system = "aarch64-darwin";};
+      specialArgs = {inherit username;};
 
       modules = [
         ./modules/darwin
@@ -51,7 +53,7 @@
             enableRosetta = true;
 
             # User owning the Homebrew prefix
-            user = "nunocf";
+            user = username;
 
             # Automatically migrate existing Homebrew installations
             autoMigrate = true;
@@ -62,8 +64,8 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {inherit nunocf-nvim pkgs-stable;};
-            users.nunocf.imports = [
+            extraSpecialArgs = {inherit nunocf-nvim pkgs-stable username;};
+            users."${username}".imports = [
               ./modules/home-manager
             ];
           };

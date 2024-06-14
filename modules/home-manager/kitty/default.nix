@@ -1,9 +1,10 @@
 {
   enable = true;
   darwinLaunchOptions = ["--start-as=maximized"];
+  shellIntegration.enableZshIntegration = true;
   settings = {
     font_size = "16.0";
-    font_family = "FiraCode Nerd Font";
+    font_family = "FiraCode";
     disable_ligatures = "cursor";
     copy_on_select = "yes";
 

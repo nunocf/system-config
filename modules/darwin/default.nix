@@ -1,6 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   # here go the darwin preferences and configuration items
   programs.zsh.enable = true;
+
   environment = {
     shells = [pkgs.zsh pkgs.bash];
     loginShell = pkgs.zsh;
@@ -35,8 +40,8 @@
   };
   services.nix-daemon.enable = true;
 
-  users.users.nunocf = {
-    home = "/Users/nunocf";
+  users.users."${username}" = {
+    home = "/Users/${username}";
     shell = pkgs.zsh;
   };
 

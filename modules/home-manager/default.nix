@@ -2,6 +2,7 @@
   pkgs,
   pkgs-stable,
   nunocf-nvim,
+  username,
   ...
 }: {
   # Don't change this when you change package input. Leave it alone.
@@ -55,7 +56,7 @@
       CLICOLOR = 1;
       EDITOR = "nvim";
       TERMINAL = "kitty";
-      PATH = "$HOME/.ghcup/bin:$PATH";
+      SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
     };
 
     file.".inputrc".source = ./dotfiles/inputrc;
