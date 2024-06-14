@@ -5,6 +5,7 @@
     # Where we get most of our software. Giant mono repo with recipes
     # called derivations that say how to build certain software.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Manages configs, links things to home directory
     home-manager = {
@@ -23,11 +24,14 @@
 
   outputs = inputs @ {
     nixpkgs,
+    nixpkgs-stable,
     darwin,
     home-manager,
     nunocf-nvim,
     ...
-  }: {
+  }: let
+    pkgs-stable = import nixpkgs-stable {system = "aarch64-darwin";};
+  in {
     darwinConfigurations.Nunos-MacBook-Pro = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
 
@@ -40,7 +44,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {inherit nunocf-nvim;};
+            extraSpecialArgs = {inherit nunocf-nvim pkgs-stable;};
             users.nunocf.imports = [
               ./modules/home-manager
             ];

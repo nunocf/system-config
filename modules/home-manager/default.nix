@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   nunocf-nvim,
   ...
 }: {
@@ -69,6 +70,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      package = pkgs-stable.fzf;
     };
 
     eza.enable = true;
