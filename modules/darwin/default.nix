@@ -2,7 +2,7 @@
   # here go the darwin preferences and configuration items
   programs.zsh.enable = true;
   environment = {
-    shells = [pkgs.bash pkgs.zsh];
+    shells = [pkgs.zsh pkgs.bash];
     loginShell = pkgs.zsh;
     systemPackages = [pkgs.coreutils];
     systemPath = ["/opt/homebrew/bin"];
@@ -35,7 +35,10 @@
   };
   services.nix-daemon.enable = true;
 
-  users.users.nunocf.home = "/Users/nunocf";
+  users.users.nunocf = {
+    home = "/Users/nunocf";
+    shell = pkgs.zsh;
+  };
 
   # backwards compatibility. Don't change
   system.stateVersion = 4;
