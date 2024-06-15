@@ -35,8 +35,7 @@
     };
   };
   fonts = {
-    fontDir.enable = true;
-    fonts = [(pkgs.nerdfonts.override {fonts = ["FiraCode"];})];
+    packages = [(pkgs.nerdfonts.override {fonts = ["FiraCode"];})];
   };
   services.nix-daemon.enable = true;
 
