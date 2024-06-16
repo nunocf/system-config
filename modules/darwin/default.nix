@@ -33,6 +33,10 @@
         KeyRepeat = 1;
       };
     };
+    activationScripts.postUserActivation.text = ''
+      # Following line should allow us to avoid a logout/login cycle
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
   };
   fonts = {
     packages = [(pkgs.nerdfonts.override {fonts = ["FiraCode"];})];
