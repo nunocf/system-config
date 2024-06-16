@@ -39,8 +39,11 @@
     '';
   };
   fonts = {
-    packages = [(pkgs.nerdfonts.override {fonts = ["FiraCode"];})];
+    packages = [
+      (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono" "0xProto"];})
+    ];
   };
+
   services.nix-daemon.enable = true;
 
   users.users."${username}" = {
