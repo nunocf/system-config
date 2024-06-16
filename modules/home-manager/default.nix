@@ -62,6 +62,12 @@
     file.".inputrc".source = ./dotfiles/inputrc;
     file.".hushlogin".text = "";
   };
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = ["JetBrainsMono Nerd Font"];
+    };
+  };
 
   programs = {
     bat = {
