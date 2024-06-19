@@ -19,6 +19,8 @@
   theme = "Kanagawa";
 
   keybindings = {
+    "ctrl+shift+h" = "previous_tab";
+    "ctrl+shift+l" = "next_tab";
     "ctrl+shift+enter" = "new_window_with_cwd";
   };
 }
