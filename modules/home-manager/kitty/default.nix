@@ -16,7 +16,7 @@
     active_tab_font_style = "bold";
   };
 
-  theme = "Kanagawa";
+  themeFile = "Kanagawa";
 
   keybindings = {
     "ctrl+shift+h" = "previous_tab";
