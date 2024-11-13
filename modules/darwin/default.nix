@@ -8,7 +8,6 @@
 
   environment = {
     shells = [pkgs.zsh pkgs.bash];
-    loginShell = pkgs.zsh;
     systemPackages = [pkgs.coreutils];
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
