@@ -36,6 +36,7 @@
       pkgs.haskellPackages.implicit-hie
       pkgs.ormolu
       pkgs.ghc
+      pkgs.ihp-new
 
       # Elm
       pkgs.elmPackages.elm-language-server
