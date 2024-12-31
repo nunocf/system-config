@@ -39,7 +39,9 @@
   };
   fonts = {
     packages = [
-      (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono" "0xProto"];})
+      pkgs.nerd-fonts.fira-code
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts._0xProto
     ];
   };
 
