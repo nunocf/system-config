@@ -18,9 +18,13 @@
       url = "github:/lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    nunocf-nvim.url = "github:nunocf/nixvim";
+    nunocf-nvim = {
+      url = "github:nunocf/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
