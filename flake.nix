@@ -5,7 +5,7 @@
     # Where we get most of our software. Giant mono repo with recipes
     # called derivations that say how to build certain software.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # Manages configs, links things to home directory
     home-manager = {

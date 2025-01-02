@@ -12,6 +12,10 @@
     systemPath = ["/opt/homebrew/bin"];
     pathsToLink = ["/Applications"];
   };
+  nix.settings = {
+    trusted-users = ["root" username];
+    trusted-substituters = ["https://nri.cachix.org/"];
+  };
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
@@ -41,7 +45,7 @@
     packages = [
       pkgs.nerd-fonts.fira-code
       pkgs.nerd-fonts.jetbrains-mono
-      pkgs.nerd-fonts._0xProto
+      pkgs.nerd-fonts._0xproto
     ];
   };
 
