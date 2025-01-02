@@ -31,7 +31,6 @@
     nunocf-nvim,
     ...
   }: let
-    pkgs-stable = import nixpkgs {system = "aarch64-darwin";};
     username = "nunocf";
     hostname = "Nunos-MacBook-Pro";
   in {
@@ -63,7 +62,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {inherit nunocf-nvim pkgs-stable username;};
+            extraSpecialArgs = {inherit nunocf-nvim username;};
             users."${username}".imports = [
               ./modules/home-manager
             ];
