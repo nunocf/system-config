@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   nunocf-nvim,
   username,
   ...
@@ -21,6 +20,7 @@
       pkgs.yarn
       pkgs.gh
       pkgs.lazygit
+      pkgs.fzf
 
       # replace cd
       pkgs.zoxide
@@ -29,13 +29,13 @@
       pkgs.kitty-themes
 
       # Haskell
+      pkgs.ghc
+      pkgs.cabal-install
+      pkgs.ormolu
       pkgs.haskell-language-server
       pkgs.hlint
-      pkgs.cabal-install
       # pkgs.haskellPackages.cabal-fmt
       # pkgs.haskellPackages.implicit-hie
-      pkgs.ormolu
-      pkgs.ghc
       pkgs.ihp-new
 
       # Elm
@@ -79,7 +79,6 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      package = pkgs-stable.fzf;
     };
 
     eza.enable = true;
