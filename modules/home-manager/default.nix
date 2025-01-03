@@ -34,7 +34,7 @@
       # pkgs.ihp-new
 
       # Elm
-      pkgs.elmPackages.elm-language-server
+      # pkgs.elmPackages.elm-language-server
       # pkgs.elmPackages.elm-format
 
       # JS
