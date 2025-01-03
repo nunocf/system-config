@@ -13,8 +13,10 @@
     pathsToLink = ["/Applications"];
   };
   nix.settings = {
-    trusted-users = ["root" username];
-    trusted-substituters = ["https://nri.cachix.org/"];
+    trusted-users = [
+      "root"
+      username
+    ];
   };
 
   nix.extraOptions = ''

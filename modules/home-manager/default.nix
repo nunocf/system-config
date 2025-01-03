@@ -30,12 +30,8 @@
 
       # Haskell
       pkgs.haskell-language-server
-      pkgs.hlint
-      pkgs.cabal-install
-      pkgs.haskellPackages.cabal-fmt
-      pkgs.haskellPackages.implicit-hie
-      pkgs.ormolu
-      pkgs.ihp-new
+      # pkgs.ormolu
+      # pkgs.ihp-new
 
       # Elm
       pkgs.elmPackages.elm-language-server
