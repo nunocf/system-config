@@ -35,7 +35,7 @@
 
       # Elm
       pkgs.elmPackages.elm-language-server
-      pkgs.elmPackages.elm-format
+      # pkgs.elmPackages.elm-format
 
       # JS
       pkgs.nodePackages.eslint
