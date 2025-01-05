@@ -3,7 +3,8 @@
   nunocf-nvim,
   username,
   ...
-}: {
+}:
+{
   # Don't change this when you change package input. Leave it alone.
   home = {
     stateVersion = "24.05";
@@ -29,9 +30,7 @@
       pkgs.kitty-themes
 
       # Haskell
-      pkgs.haskell-language-server
-      # pkgs.ormolu
-      # pkgs.ihp-new
+      pkgs.ihp-new
 
       # Elm
       pkgs.elmPackages.elm-language-server
@@ -61,7 +60,7 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = ["JetBrainsMono Nerd Font"];
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
 
