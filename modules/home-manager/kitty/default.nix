@@ -1,6 +1,6 @@
 {
   enable = true;
-  darwinLaunchOptions = ["--start-as=maximized"];
+  darwinLaunchOptions = [ "--start-as=maximized" ];
   shellIntegration.enableZshIntegration = true;
   settings = {
     font_size = "17.0";
@@ -16,7 +16,9 @@
     active_tab_font_style = "bold";
   };
 
-  themeFile = "Kanagawa";
+  # themeFile = "Kanagawa";
+  themeFile = "everforest_dark_medium";
+  # themeFile = "rose-pine-moon";
 
   keybindings = {
     "ctrl+shift+h" = "previous_tab";
