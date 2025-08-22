@@ -1,28 +1,35 @@
+{ pkgs, username, ... }:
 {
-  pkgs,
-  username,
-  ...
-}: {
-  # here go the darwin preferences and configuration items
   programs.zsh.enable = true;
 
-  environment = {
-    shells = [pkgs.zsh pkgs.bash];
-    systemPackages = [pkgs.coreutils];
-    systemPath = ["/opt/homebrew/bin"];
-    pathsToLink = ["/Applications"];
-  };
-  nix.settings = {
-    trusted-users = [
-      "root"
-      username
-    ];
+  services.nix-daemon.enable = true;
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      keep-outputs = true;
+      trusted-users = [ "root" username ];
+    };
+    # If you truly need raw lines, use extraOptions, but you don't here.
+    # extraOptions = '' ... '';
   };
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-    keep-outputs = true
+  # Optional: only add Brew to shells if it exists (safer on first boot)
+  environment.shellInit = ''
+    if [ -x /opt/homebrew/bin/brew ]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
   '';
+
+  environment = {
+    shells = [ pkgs.zsh pkgs.bash ];
+    systemPackages = [ pkgs.coreutils ];
+    # You can drop this if you use the guarded shellInit above:
+    # systemPath = [ "/opt/homebrew/bin" ];
+    pathsToLink = [ "/Applications" ];
+  };
+
   system = {
     keyboard = {
       enableKeyMapping = true;
@@ -39,35 +46,33 @@
       };
     };
     activationScripts.postUserActivation.text = ''
-      # Following line should allow us to avoid a logout/login cycle
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
   };
-  fonts = {
-    packages = [
-      # (pkgs.nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono" "0xProto"];})
-      pkgs.nerd-fonts.fira-code
-      pkgs.nerd-fonts.jetbrains-mono
-      pkgs.nerd-fonts._0xproto
-    ];
-  };
 
-  services.nix-daemon.enable = true;
+  fonts.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts._0xproto
+  ];
 
   users.users."${username}" = {
     home = "/Users/${username}";
     shell = pkgs.zsh;
   };
 
-  # backwards compatibility. Don't change
-  system.stateVersion = 4;
+  # Homebrew managed by nix-darwin; Brew itself bootstrapped by nix-homebrew (from your flake)
   homebrew = {
     enable = true;
+
+    # Use this only if you actually keep a Brewfile you want to apply:
     caskArgs.no_quarantine = true;
-    global.brewfile = true;
-    masApps = {};
-    casks = ["raycast" "amethyst"];
-    taps = ["fujiapple852/trippy"];
-    brews = ["trippy"];
+    taps = [ "fujiapple852/trippy" ];
+    brews = [ "trippy" ];
+    casks = [ "raycast" "amethyst" ];
+    masApps = { };
   };
+
+  # backwards compatibility. Don't change
+  system.stateVersion = 4;
 }

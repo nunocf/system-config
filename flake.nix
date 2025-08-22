@@ -16,7 +16,7 @@
 
     # Controls system level software and settings including fonts
     darwin = {
-      url = "github:/lnl7/nix-darwin";
+      url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,7 +53,7 @@
             enable = true;
 
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = true;
+            enableRosetta = false;
 
             # User owning the Homebrew prefix
             user = username;
